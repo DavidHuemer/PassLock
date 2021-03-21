@@ -39,7 +39,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding DisplayName}" 
-                            Command="{Binding ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
+                            Command="{Binding DataContext.ChangePage, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
                             CommandParameter="{Binding }" 
                             Margin="0,10,0,0" 
                             HorizontalAlignment="Stretch"></Button>
