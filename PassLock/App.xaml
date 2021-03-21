@@ -17,9 +17,10 @@
                 <!--Default Controls-->
                 <ResourceDictionary Source="pack://application:,,,/PassLock.GUI;component/Styles/Controls/Default/TextBoxStyles.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/PassLock.GUI;component/Styles/Controls/Default/ButtonStyles.xaml"/>
-                
-                
-                
+
+                <!--Custom Controls-->
+                <ResourceDictionary Source="pack://application:,,,/PassLock.GUI;component/Styles/Controls/Custom/NavigationStyles.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
