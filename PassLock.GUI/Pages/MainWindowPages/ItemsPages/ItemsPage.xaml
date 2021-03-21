@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="PassLock.GUI.Pages.MainWindowPages.ItemsPages.ItemsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PassLock.GUI.Pages.MainWindowPages.ItemsPages"
+             xmlns:converter="clr-namespace:PassLock.GUI.Converter"
+             xmlns:detailViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Items.ItemDetailViewModels"
+             xmlns:detailPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.ItemsPages.ItemDetailPages"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:UriImageSourceConverter x:Key="UriImageSourceConverter"/>
+
+        <DataTemplate DataType="{x:Type detailViewModels:ItemViewerViewModel}">
+            <detailPages:ItemsViewer/>
+        </DataTemplate>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="220" MaxWidth="400"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <local:ItemsListUC DataContext="{Binding ItemsListViewModel}"/>
+
+        <ContentControl Grid.Column="1" Content="{Binding OpenedPage}"/>
+
+        <!--<Button Grid.Column="1" Content="Check" Click="Button_Click"/>-->
+    </Grid>
+</UserControl>

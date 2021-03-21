@@ -1,0 +1,26 @@
+﻿<Application x:Class="PassLock.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:PassLock"
+             ShutdownMode="OnExplicitShutdown"
+             Startup="PassLock_Startup">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                
+                <!--Basics-->
+                <ResourceDictionary Source="pack://application:,,,/PassLock.GUI;component/Styles/Basics/Colors.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/PassLock.GUI;component/Styles/Basics/BaseStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/PassLock.GUI;component/Styles/Basics/TextStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/PassLock.GUI;component/Styles/Basics/WindowStyles.xaml"/>
+
+                <!--Default Controls-->
+                <ResourceDictionary Source="pack://application:,,,/PassLock.GUI;component/Styles/Controls/Default/TextBoxStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/PassLock.GUI;component/Styles/Controls/Default/ButtonStyles.xaml"/>
+                
+                
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

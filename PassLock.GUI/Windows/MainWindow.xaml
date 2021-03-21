@@ -1,0 +1,46 @@
+﻿<Window x:Class="PassLock.GUI.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PassLock.GUI.Windows"
+        xmlns:itemsViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Items"
+        xmlns:settingsiewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Settings"
+        xmlns:itemsPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.ItemsPages"
+        xmlns:settingsPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.SettingsPages"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="450" Width="800"
+        Style="{StaticResource BaseWindow}">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type itemsViewModels:ItemsPageViewModel}">
+            <itemsPages:ItemsPage/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type settingsiewModels:SettingsPageViewModel}">
+            <settingsPages:SettingsPage/>
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ItemsControl ItemsSource="{Binding Pages}" 
+                      Margin="10" 
+                      MinWidth="150">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding DisplayName}" 
+                            Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
+                            CommandParameter="{Binding }" 
+                            Margin="0,10,0,0" 
+                            HorizontalAlignment="Stretch"></Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <ContentControl Content="{Binding CurrentPage}" Grid.Column="1"></ContentControl>
+    </Grid>
+</Window>

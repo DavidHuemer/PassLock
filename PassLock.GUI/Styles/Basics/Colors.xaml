@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PassLock.GUI.Styles.Basics">
+    <SolidColorBrush x:Key="MainBackground" Color="#ffffff"/>
+    <SolidColorBrush x:Key="MainForeground" Color="#0f0f0f"/>
+
+    <SolidColorBrush x:Key="ControlBackground" Color="#fafafa"/>
+    <SolidColorBrush x:Key="ControlBorder" Color="#d4d4d4"/> 
+    
+</ResourceDictionary>

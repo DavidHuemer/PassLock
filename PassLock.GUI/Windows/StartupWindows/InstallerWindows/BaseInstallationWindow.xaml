@@ -1,0 +1,46 @@
+﻿<Window x:Class="PassLock.GUI.Windows.StartupWindows.InstallerWindows.BaseInstallationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PassLock.GUI.Windows.StartupWindows.InstallerWindows"
+        xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+        xmlns:default="clr-namespace:PassLock.GUI.Controls.Default"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="450" Width="800"
+        Style="{StaticResource BaseWindow}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical">
+            <svgc:SvgViewbox Source="{Binding IconSource}" 
+                             Height="160" MaxWidth="200"/>
+
+            <Label Content="{Binding Detail}"/>
+
+            <DockPanel Height="30">
+                <default:ExButton Content="Install" DockPanel.Dock="Right"
+                                  Command="{Binding Install}"/>
+                <default:ExTextBox Text="{Binding Command}"
+                                   Style="{StaticResource ReadOnlyTextBox}"/>
+            </DockPanel>
+        </StackPanel>
+
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Right">
+            <!--Test Button-->
+            <default:ExButton x:Name="testButton" 
+                              Content="Test" 
+                              DockPanel.Dock="Right"
+                              Command="{Binding Test}"/>
+
+            <!--Next Button-->
+            <default:ExButton x:Name="nextButton" 
+                              DockPanel.Dock="Right" 
+                              Content="Next" 
+                              Command="{Binding Next}"/>
+        </WrapPanel>
+    </Grid>
+</Window>

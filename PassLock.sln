@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassLock", "PassLock\PassLock.csproj", "{1CEDFD49-7947-454E-9B55-E9B45F527BD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassLock.Manager", "PassLock.Manager\PassLock.Manager.csproj", "{53B2A7AA-0E79-4F2C-AEBA-9B133A204999}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassLock.Handler", "PassLock.Handler\PassLock.Handler.csproj", "{1C414D36-844E-4605-840C-0A46AAEECA98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassLock.Tests", "PassLock.Tests\PassLock.Tests.csproj", "{C39B7124-E2AC-4115-8C19-0621BF9D39A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassLock.Bitwarden", "PassLock.Bitwarden\PassLock.Bitwarden.csproj", "{72320A04-A988-4926-A6E6-0949CFF5A2D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassLock.GUI", "PassLock.GUI\PassLock.GUI.csproj", "{E604704B-D135-437C-8DDC-ECF0B899D23C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CEDFD49-7947-454E-9B55-E9B45F527BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CEDFD49-7947-454E-9B55-E9B45F527BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CEDFD49-7947-454E-9B55-E9B45F527BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CEDFD49-7947-454E-9B55-E9B45F527BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53B2A7AA-0E79-4F2C-AEBA-9B133A204999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53B2A7AA-0E79-4F2C-AEBA-9B133A204999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53B2A7AA-0E79-4F2C-AEBA-9B133A204999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53B2A7AA-0E79-4F2C-AEBA-9B133A204999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C414D36-844E-4605-840C-0A46AAEECA98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C414D36-844E-4605-840C-0A46AAEECA98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C414D36-844E-4605-840C-0A46AAEECA98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C414D36-844E-4605-840C-0A46AAEECA98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C39B7124-E2AC-4115-8C19-0621BF9D39A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C39B7124-E2AC-4115-8C19-0621BF9D39A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C39B7124-E2AC-4115-8C19-0621BF9D39A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C39B7124-E2AC-4115-8C19-0621BF9D39A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72320A04-A988-4926-A6E6-0949CFF5A2D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72320A04-A988-4926-A6E6-0949CFF5A2D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72320A04-A988-4926-A6E6-0949CFF5A2D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72320A04-A988-4926-A6E6-0949CFF5A2D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E604704B-D135-437C-8DDC-ECF0B899D23C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E604704B-D135-437C-8DDC-ECF0B899D23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E604704B-D135-437C-8DDC-ECF0B899D23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E604704B-D135-437C-8DDC-ECF0B899D23C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0978830-0782-4BE4-AD47-ABFD942D3D6C}
+	EndGlobalSection
+EndGlobal
