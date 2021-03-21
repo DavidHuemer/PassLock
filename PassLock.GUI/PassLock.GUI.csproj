@@ -88,6 +88,9 @@
     <Compile Include="Converter\UriImageSourceConverter.cs" />
     <Compile Include="Manager\BitwardenUIAuthManager.cs" />
     <Compile Include="Manager\Items\ItemsSearchManager.cs" />
+    <Compile Include="Pages\MainWindowPages\AccountPages\AccountPage.xaml.cs">
+      <DependentUpon>AccountPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainWindowPages\ItemsPages\ItemDetailPages\ItemsViewer.xaml.cs">
       <DependentUpon>ItemsViewer.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,7 @@
     <Compile Include="ViewModels\Basics\RelayCommand.cs" />
     <Compile Include="ViewModels\Basics\WindowViewModel.cs" />
     <Compile Include="ViewModels\MainViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\Account\AccountPageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Items\ItemDetailViewModels\BaseItemDetailViewModel.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Items\ItemDetailViewModels\ItemViewerViewModel.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Items\ItemsListViewModel.cs" />
@@ -152,6 +156,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Pages\MainWindowPages\AccountPages\AccountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainWindowPages\ItemsPages\ItemDetailPages\ItemsViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

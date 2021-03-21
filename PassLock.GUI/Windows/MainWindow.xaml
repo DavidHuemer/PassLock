@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PassLock.GUI.Windows"
         xmlns:itemsViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Items"
-        xmlns:settingsiewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Settings"
+        xmlns:settingsViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Settings"
+        xmlns:accountViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Account"
         xmlns:itemsPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.ItemsPages"
         xmlns:settingsPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.SettingsPages"
+        xmlns:accountPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.AccountPages"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="450" Width="800"
         Style="{StaticResource BaseWindow}">
@@ -16,8 +18,12 @@
             <itemsPages:ItemsPage/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type settingsiewModels:SettingsPageViewModel}">
+        <DataTemplate DataType="{x:Type settingsViewModels:SettingsPageViewModel}">
             <settingsPages:SettingsPage/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type accountViewModels:AccountPageViewModel}">
+            <accountPages:AccountPage/>
         </DataTemplate>
     </Window.Resources>
     
@@ -33,7 +39,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding DisplayName}" 
-                            Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
+                            Command="{Binding ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
                             CommandParameter="{Binding }" 
                             Margin="0,10,0,0" 
                             HorizontalAlignment="Stretch"></Button>

@@ -1,4 +1,5 @@
 ﻿using PassLock.GUI.ViewModels.Basics;
+using PassLock.GUI.ViewModels.MainViewModels.Pages.Account;
 using PassLock.GUI.ViewModels.MainViewModels.Pages.Items;
 using PassLock.GUI.ViewModels.MainViewModels.Pages.Settings;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace PassLock.GUI.ViewModels.MainViewModels
 
             Pages.Add(new ItemsPageViewModel());
             Pages.Add(new SettingsPageViewModel());
+            Pages.Add(new AccountPageViewModel());
             CurrentPage = Pages[0];
         }
 
