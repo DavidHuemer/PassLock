@@ -7,6 +7,7 @@
         xmlns:itemsViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Items"
         xmlns:settingsViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Settings"
         xmlns:accountViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Account"
+        xmlns:navigationPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.NavigationPages"
         xmlns:itemsPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.ItemsPages"
         xmlns:settingsPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.SettingsPages"
         xmlns:accountPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.AccountPages"
@@ -33,19 +34,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ItemsControl ItemsSource="{Binding Pages}" 
-                      Margin="10" 
-                      MinWidth="150">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button Content="{Binding DisplayName}" 
-                            Command="{Binding DataContext.ChangePage, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
-                            CommandParameter="{Binding }" 
-                            Margin="0,10,0,0" 
-                            HorizontalAlignment="Stretch"></Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <navigationPages:NavigationPage/>
 
         <ContentControl Content="{Binding CurrentPage}" Grid.Column="1"></ContentControl>
     </Grid>
