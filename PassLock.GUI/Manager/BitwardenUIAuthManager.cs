@@ -18,28 +18,8 @@ namespace PassLock.GUI.Manager
                 return LoginResult.CreateSucess(authStatus.UserEmail);
             }
 
-            new LoginWindow().Open(authStatus);
-            return null;
-
-            //switch (authStatus.Status)
-            //{
-            //    case BitwardenStatus.Unlocked:
-            //        //Login finished
-            //        return new LoginResult
-            //        {
-            //            IsLoggedIn = true,
-            //            UserEmail = authStatus.UserEmail,
-            //            UserId = authStatus.UserId
-            //        };
-            //    case BitwardenStatus.Locked:
-            //        //Need password
-            //        return null;
-            //    case BitwardenStatus.Logout:
-            //        //Need email and password
-            //        return null;
-            //    default:
-            //        throw new ArgumentException($"The status {authStatus.Status} does not exist");
-            //}
+            var loginResult = new LoginWindow().Open(authStatus);
+            return loginResult;
         }
     }
 }
