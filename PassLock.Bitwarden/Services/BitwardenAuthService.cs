@@ -47,7 +47,7 @@ namespace PassLock.Bitwarden.Services
         {
             string encapsulatedPassword = CommandHandler.EncapsulateString(password);
             string command = $"{BW_UNLOCK_COMMAND} {encapsulatedPassword}";
-            var result = await CommandHandler.RunCommandAsync(command);
+            var result = await CommandHandler.RunCommandAsync(command, 2500);
             return result;
         }
     }
