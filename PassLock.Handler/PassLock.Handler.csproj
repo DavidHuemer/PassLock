@@ -57,6 +57,7 @@
     <Compile Include="CommandLineHandler\Data\CommandStatus.cs" />
     <Compile Include="CommandLineHandler\ProcessTimeout.cs" />
     <Compile Include="Data\Diagnostics\ExecutionTimer.cs" />
+    <Compile Include="Data\Diagnostics\RunModeHandler.cs" />
     <Compile Include="Data\InstallationSucess.cs" />
     <Compile Include="Data\Startup\AppSetting.cs" />
     <Compile Include="Data\Startup\AppSettings.cs" />
