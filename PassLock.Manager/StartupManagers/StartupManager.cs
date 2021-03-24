@@ -24,7 +24,7 @@ namespace PassLock.Manager.StartupManagers
             {
                 await RunStartup(appSettings);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 Environment.Exit(1);
@@ -42,7 +42,7 @@ namespace PassLock.Manager.StartupManagers
             await CheckInstallations(appSettings);
 
             //2. Login
-            var loginResult = await Login(appSettings);
+            var loginResult = await LoginManager.Login(appSettings);
 
             if (loginResult.IsLoggedIn)
             {
@@ -69,25 +69,6 @@ namespace PassLock.Manager.StartupManagers
             {
                 throw new ArgumentException($"The Installation of the following software failed: {installationSuccess}");
             }
-        }
-
-        private static async Task<LoginResult> Login(AppSettings appSettings)
-        {
-            var timer = new ExecutionTimer(true);
-            LoginResult loginResult;
-
-            bool fastLogin = bool.Parse(appSettings.GetByKey(AppSetting.CheckInstallations));
-            if (fastLogin)
-            {
-                loginResult = await BitwardenAuthManager.Unlock("(helloworld)!");
-            }
-            else
-            {
-                loginResult = await BitwardenUIAuthManager.Login();
-            }
-
-            timer.StopAndWrite();
-            return loginResult;
         }
     }
 }

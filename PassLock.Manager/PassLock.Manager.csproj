@@ -48,6 +48,7 @@
     <Compile Include="StartupManagers\Installation\BitwardenInstallationManager.cs" />
     <Compile Include="StartupManagers\Installation\InstallationManager.cs" />
     <Compile Include="StartupManagers\Installation\NpmInstallationManager.cs" />
+    <Compile Include="StartupManagers\LoginManager.cs" />
     <Compile Include="StartupManagers\StartupManager.cs" />
   </ItemGroup>
   <ItemGroup>
