@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PassLock.GUI.Styles.Controls.Default">
+    <Style x:Key="BaseProgressbar" TargetType="ProgressBar" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Foreground" Value="{StaticResource Highlight_LightBlue_1}"/>
+        <Setter Property="Background" Value="{StaticResource ControlBackground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource ControlBorder}"/> 
+    </Style>
+
+    <Style TargetType="ProgressBar" BasedOn="{StaticResource BaseProgressbar}">
+        
+    </Style>
+</ResourceDictionary>
