@@ -2,9 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:PassLock.GUI.Styles.Basics">
     <SolidColorBrush x:Key="MainBackground" Color="#ffffff"/>
+    <SolidColorBrush x:Key="DisabledBackground" Color="#cccccc"/>
 
     <SolidColorBrush x:Key="MainForeground" Color="#212121"/>
     <SolidColorBrush x:Key="Foreground_Light" Color="#b8bec5"/>
+    <SolidColorBrush x:Key="DisabledForeground" Color="#949494"/>
 
     <SolidColorBrush x:Key="ControlBackground" Color="#fafafa"/>
     <SolidColorBrush x:Key="ControlBorder" Color="#d4d4d4"/>
