@@ -9,8 +9,9 @@
         <Setter Property="Foreground" Value="{StaticResource MainForeground}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="{StaticResource ControlBorder}"/>
-        <Setter Property="Padding" Value="4"/>
-        <Setter Property="HintForeground" Value="Green"/>
+        <Setter Property="Padding" Value="6"/>
+        <Setter Property="HintForeground" Value="{StaticResource Foreground_Light}"/>
+        <Setter Property="FocusBorderBrush" Value="{StaticResource Highlight_LightBlue_1}"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -44,9 +45,13 @@
 
                             <MultiTrigger.Setters>
                                 <Setter TargetName="PART_WatermarkHost" Property="Visibility" Value="Visible"/>
-                                <Setter Property="Foreground" Value="#595959"/>
+                                <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Self}, Path=HintForeground}"/>
                             </MultiTrigger.Setters>
                         </MultiTrigger>
+
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=FocusBorderBrush}"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -64,6 +69,10 @@
         <Setter Property="BorderBrush" Value="#a6a6a6"/>
     </Style>
 
+    <Style x:Key="BigInputField" TargetType="default:ExTextBox" BasedOn="{StaticResource BaseExTextBox}">
+        <Setter Property="Padding" Value="6,10"/>
+    </Style>
+    
     <Style TargetType="default:ExPasswordBox" BasedOn="{StaticResource BaseExTextBox}">
         
     </Style>
