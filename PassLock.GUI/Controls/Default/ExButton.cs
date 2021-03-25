@@ -8,6 +8,7 @@ namespace PassLock.GUI.Controls.Default
     {
         #region Default Values
         readonly static Brush DefaultHoverBackgroundValue = new BrushConverter().ConvertFromString("#FFBEE6FD") as Brush;
+        readonly static Brush DefaultHoverBorderBrushValue = new BrushConverter().ConvertFromString("#b5b5b5") as Brush;
         readonly static CornerRadius DefaultCornerRadiusValue = new CornerRadius(0);
         #endregion
 
@@ -24,6 +25,21 @@ namespace PassLock.GUI.Controls.Default
 
         #endregion
 
+        #region HoverBorderBrush
+
+        public Brush HoverBorderBrush
+        {
+            get { return (Brush)GetValue(HoverBorderBrushProperty); }
+            set { SetValue(HoverBorderBrushProperty, value); }
+        }
+
+        public static readonly DependencyProperty HoverBorderBrushProperty = DependencyProperty.Register(
+          nameof(HoverBorderBrush), typeof(Brush), typeof(ExButton), new PropertyMetadata(DefaultHoverBorderBrushValue));
+
+        #endregion
+
+        #region CornerRadius
+
         public CornerRadius CornerRadius
         {
             get { return (CornerRadius)GetValue(CornerRadiusProperty); }
@@ -32,5 +48,7 @@ namespace PassLock.GUI.Controls.Default
 
         public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(
           nameof(CornerRadius), typeof(CornerRadius), typeof(ExButton), new PropertyMetadata(DefaultCornerRadiusValue));
+
+        #endregion
     }
 }
