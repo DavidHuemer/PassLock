@@ -1,5 +1,16 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:PassLock.GUI.Styles.Basics">
-    
+    <Style x:Key="BaseLabel" TargetType="Label" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+
+    <Style TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+        
+    </Style>
+
+    <Style x:Key="ErrorLabel" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+        <Setter Property="Foreground" Value="{StaticResource ErrorForeground}"/>
+    </Style>
 </ResourceDictionary>
