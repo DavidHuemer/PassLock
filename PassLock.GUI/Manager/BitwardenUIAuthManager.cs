@@ -18,7 +18,7 @@ namespace PassLock.GUI.Manager
                 return LoginResult.CreateSucess(authStatus.UserEmail);
             }
 
-            var loginResult = new LoginWindow().Open(authStatus);
+            var loginResult = new LoginWindow().ShowLogin(authStatus);
             return loginResult;
         }
     }

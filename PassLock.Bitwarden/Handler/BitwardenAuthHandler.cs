@@ -9,10 +9,17 @@ using System.Threading.Tasks;
 
 namespace PassLock.Bitwarden.Handler
 {
-    public class BitwardenAuthHandler
+    /// <summary>
+    /// Handles the authentication stuff
+    /// </summary>
+    public class BitwardenAuthHandler : BitwardenLoginHandler
     {
+        #region Constants
+
         private const string INVALID_LOGIN = "Username or password is incorrect. Try again.";
         private const string ALREADY_LOGGED_IN = "You are already logged in as";
+
+        #endregion
 
         private readonly IAuthService authService;
 
@@ -28,13 +35,20 @@ namespace PassLock.Bitwarden.Handler
         public async Task<BitwardenAuthStatus> GetAuthStatus()
         {
             var result = await authService.GetAuthStatus();
-            if (result.Status != PassLock.Handler.CommandLineHandler.Data.CommandStatus.Success)
+            if (result.Status != CommandStatus.Success)
             {
-                throw new ArgumentException("A correct response must be given");
+                throw new ArgumentException("The authService returned " +
+                    "a unsuccessful response for the authStatus request");
             }
 
             var authDTO = JsonConvert.DeserializeObject<BitwardenAuthStatusDTO>(result.Output);
             return authDTO.ConvertBack();
+        }
+
+        public async Task<LoginResult> LoginByAuthStatus(string email, string password)
+        {
+            var authStatus = await GetAuthStatus();
+            return await LoginByAuthStatus(authStatus, email, password);
         }
 
         /// <summary>
@@ -43,7 +57,7 @@ namespace PassLock.Bitwarden.Handler
         /// <param name="email">The email of the bitwarden account</param>
         /// <param name="password">The password of the bitwarden account</param>
         /// <returns>The result of the login</returns>
-        public async Task<LoginResult> Login(string email, string password)
+        public override async Task<LoginResult> Login(string email, string password)
         {
             var result = await authService.Login(email, password);
 
@@ -61,12 +75,12 @@ namespace PassLock.Bitwarden.Handler
         /// Logs out the current user
         /// </summary>
         /// <returns>The response of the logout command</returns>
-        public async Task<CommandResult> Logout()
+        public override async Task<CommandResult> Logout()
         {
             return await authService.Logout();
         }
 
-        public async Task<LoginResult> Unlock(string password)
+        public override async Task<LoginResult> Unlock(string password)
         {
             var result = await authService.Unlock(password);
             if (!result.Output.Contains("--session"))

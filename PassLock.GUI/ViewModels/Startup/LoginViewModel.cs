@@ -10,11 +10,15 @@ namespace PassLock.GUI.ViewModels.Startup
 {
     public class LoginViewModel : WindowViewModel
     {
+        #region Private variables
+
         private readonly BitwardenAuthHandler bitwardenAuthHandler;
         private readonly Func<string> getPassFunc;
         private string originalEmail = "";
 
-        public LoginResult LoginResult { get; private set; } = LoginResult.CreateFailed("Login failed");
+        #endregion
+
+        #region Init
 
         public LoginViewModel(IAuthService authService, Func<string> getPassFunc)
         {
@@ -23,13 +27,21 @@ namespace PassLock.GUI.ViewModels.Startup
             this.getPassFunc = getPassFunc;
         }
 
-        public void Open(BitwardenAuthStatus bitwardenAuthStatus)
+        /// <summary>
+        /// Inititializes the begin state of the viewModel
+        /// </summary>
+        /// <param name="bitwardenAuthStatus">The current auth status</param>
+        public void Init(BitwardenAuthStatus bitwardenAuthStatus)
         {
             originalEmail = bitwardenAuthStatus.UserEmail ?? "";
             Email = originalEmail;
         }
 
+        #endregion
+
         #region Properties
+
+        public LoginResult LoginResult { get; private set; } = LoginResult.CreateFailed("Login failed");
 
         private string email = "";
         private string password = "";
@@ -53,16 +65,15 @@ namespace PassLock.GUI.ViewModels.Startup
             }
         }
 
+        public bool IsLogginIn { get; set; } = false;
+
         public string ErrorText { get; set; } = "";
 
         public bool CanEnterText { get; set; } = true;
 
         #endregion
 
-        private void UpdateCanLogin()
-        {
-            CanLogin = Email.Trim().Length > 0 && getPassFunc().Trim().Length > 0;
-        }
+        #region Commands
 
         public bool CanLogin { get; private set; } = false;
         public ICommand Login => new RelayCommand(o => { DoLogin(); }, o => CanLogin);
@@ -70,32 +81,41 @@ namespace PassLock.GUI.ViewModels.Startup
         {
             var timer = new ExecutionTimer(true);
 
-            CanEnterText = false;
-            CanLogin = false;
+            StartLogin();
 
             string email = Email;
             string password = getPassFunc();
+            var loginResult = await bitwardenAuthHandler.LoginByAuthStatus(email, password);
+            LoginResult = loginResult;
 
-            var loginResult = await BitwardenLoginHandler.LoginByAuthStatus(bitwardenAuthHandler, email, password);
-            
             if (loginResult.IsLoggedIn)
             {
                 //Login was sucessfull
-                LoginResult = LoginResult;
                 Reset();
                 Close();
             }
             else
             {
                 //Login failed
-                CanEnterText = true;
-                CanLogin = true;
-                ErrorText = loginResult.ErrorMessage;
+                SetUpProperties(false, loginResult.ErrorMessage, true, GetCanLogin());
             }
 
+            IsLogginIn = false;
             timer.StopAndWrite();
         }
 
+        private void StartLogin()
+        {
+            SetUpProperties(true, "", false, false);
+        }
+
+        private void SetUpProperties(bool isLoggingIn, string errorText, bool canEnterText, bool canLogin)
+        {
+            IsLogginIn = isLoggingIn;
+            ErrorText = errorText;
+            CanEnterText = canEnterText;
+            CanLogin = canLogin;
+        }
 
         public ICommand Register => new RelayCommand(o => { DoRegister(); }, o => true);
         private async void DoRegister()
@@ -103,9 +123,32 @@ namespace PassLock.GUI.ViewModels.Startup
 
         }
 
-        private void Reset()
-        {
+        #endregion
 
+        /// <summary>
+        /// Updates CanLogin, depending on if a login is possible
+        /// </summary>
+        private void UpdateCanLogin()
+        {
+            CanLogin = GetCanLogin();
+        }
+
+        /// <summary>
+        /// Returns if a login is possible depending on the email and password
+        /// </summary>
+        /// <returns>If a login is possible depending on the email and password</returns>
+        private bool GetCanLogin()
+        {
+            return Email.Trim().Length > 0 && getPassFunc().Trim().Length > 0;
+        }
+
+        /// <summary>
+        /// Resets the viewModel
+        /// </summary>
+        public void Reset()
+        {
+            Email = "";
+            Password = "";
         }
     }
 }
