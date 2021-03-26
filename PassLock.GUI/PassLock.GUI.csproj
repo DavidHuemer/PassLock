@@ -85,6 +85,7 @@
     <Compile Include="Controls\Default\ExButton.cs" />
     <Compile Include="Controls\Default\ExPasswordBox.cs" />
     <Compile Include="Controls\Default\ExTextBox.cs" />
+    <Compile Include="Converter\BooleanToCollapsedConverter.cs" />
     <Compile Include="Converter\FirstLetterConverter.cs" />
     <Compile Include="Converter\UriImageSourceConverter.cs" />
     <Compile Include="Manager\BitwardenUIAuthManager.cs" />
@@ -205,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Controls\Default\ButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Controls\Default\ProgressbarStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

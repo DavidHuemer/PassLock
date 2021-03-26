@@ -74,12 +74,17 @@
     <Compile Include="Basics\BaseTest.cs" />
     <Compile Include="Basics\MoqTest.cs" />
     <Compile Include="Bitwarden\DTOs\BitwardenAuthStatusDTO_Tests.cs" />
+    <Compile Include="Bitwarden\Handler\Authentication\BitwardenAuthHandler_Tests.cs" />
     <Compile Include="Bitwarden\Handler\Authentication\BitwardenAuthStatus_Tests.cs" />
+    <Compile Include="Bitwarden\Handler\Authentication\BitwardenLoginHandler_Tests.cs" />
     <Compile Include="Bitwarden\Handler\Authentication\BitwardenLogin_Tests.cs" />
     <Compile Include="GUI\ViewModels\Startup\InstallationViewModel_Tests.cs" />
+    <Compile Include="GUI\ViewModels\Startup\LoginViewModel_Tests.cs" />
     <Compile Include="Handler\Data\Startup\AppSettings_Tests.cs" />
     <Compile Include="Handler\IO\InstallationHandler_Tests.cs" />
     <Compile Include="Handler\IO\Web\Scrawler\FaviconScrawler_Tests.cs" />
+    <Compile Include="Helper\AuthHelper\AuthStatusHelper.cs" />
+    <Compile Include="Helper\AuthHelper\LoginHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
