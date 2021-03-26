@@ -8,7 +8,7 @@ using Xunit;
 
 namespace PassLock.Tests.Bitwarden.Handler.Authentication
 {
-    public class BitwardenAuthHandler_Tests : MoqTest
+    public class BitwardenAuthStatus_Tests : MoqTest
     {
 
     }

@@ -20,9 +20,6 @@ namespace PassLock.Tests.Bitwarden.Handler.Authentication
         const string CORRECT_LOGOUT = "You have logged out.";
         const string SECCOND_LOGOUT = "You are not logged in.";
 
-        private const string USERNAME = "example.email@gmail.com";
-        private const string PASSWORD = "password";
-
         [Theory]
         [InlineData(CORRECT_LOGIN, true, null)]
         [InlineData(SECCOND_LOGIN, false, SECCOND_LOGIN)]
