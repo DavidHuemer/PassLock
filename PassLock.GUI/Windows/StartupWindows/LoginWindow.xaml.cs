@@ -27,9 +27,9 @@ namespace PassLock.GUI.Windows.StartupWindows
             Close();
         }
 
-        public LoginResult Open(BitwardenAuthStatus bitwardenAuthStatus)
+        public LoginResult ShowLogin(BitwardenAuthStatus bitwardenAuthStatus)
         {
-            viewModel.Open(bitwardenAuthStatus);
+            viewModel.Init(bitwardenAuthStatus);
             ShowDialog();
             return loginResult;
         }
