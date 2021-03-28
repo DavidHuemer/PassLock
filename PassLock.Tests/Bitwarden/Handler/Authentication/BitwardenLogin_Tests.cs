@@ -2,11 +2,6 @@
 using PassLock.Bitwarden.Handler;
 using PassLock.Bitwarden.Services.Interfaces;
 using PassLock.Tests.Basics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace PassLock.Tests.Bitwarden.Handler.Authentication
@@ -28,9 +23,9 @@ namespace PassLock.Tests.Bitwarden.Handler.Authentication
         {
             var mock = new Mock<IAuthService>();
             var t = CreateCommandResultTaskFromOutput(response);
-            mock.Setup(service => service.Login(USERNAME, PASSWORD)).Returns(t);
+            mock.Setup(service => service.Login(Email, PASSWORD)).Returns(t);
             var handler = new BitwardenAuthHandler(mock.Object);
-            var loginResult = await handler.Login(USERNAME, PASSWORD);
+            var loginResult = await handler.Login(Email, PASSWORD);
 
             Assert.Equal(expectedSuccess, loginResult.IsLoggedIn);
             Assert.Equal(expectedErrorMessage, loginResult.ErrorMessage);

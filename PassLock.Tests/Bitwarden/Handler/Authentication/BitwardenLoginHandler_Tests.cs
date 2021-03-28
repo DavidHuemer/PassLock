@@ -24,12 +24,12 @@ namespace PassLock.Tests.Bitwarden.Handler.Authentication
             var loginTask = CreateCommandResultTaskFromOutput(loginResponse);
             var unlockTask = CreateCommandResultTaskFromOutput(unlockResponse);
             var authStatusTask = CreateCommandResultTaskFromOutput(authStatusResponse);
-            mock.Setup(service => service.Login(USERNAME, PASSWORD)).Returns(loginTask);
+            mock.Setup(service => service.Login(Email, PASSWORD)).Returns(loginTask);
             mock.Setup(service => service.Unlock(PASSWORD)).Returns(unlockTask);
             mock.Setup(service => service.GetAuthStatus()).Returns(authStatusTask);
 
             var authHandler = new BitwardenAuthHandler(mock.Object);
-            var loginResult = await authHandler.LoginByAuthStatus(authStatus, USERNAME, PASSWORD);
+            var loginResult = await authHandler.LoginByAuthStatus(authStatus, Email, PASSWORD);
 
             Assert.Equal(expectedSuccess, loginResult.IsLoggedIn);
             Assert.Equal(expectedErrorMessage, loginResult.ErrorMessage);
