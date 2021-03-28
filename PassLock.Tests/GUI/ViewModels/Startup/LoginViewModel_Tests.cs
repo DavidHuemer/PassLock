@@ -16,8 +16,8 @@ namespace PassLock.Tests.GUI.ViewModels.Startup
 
         [Theory]
         [InlineData(BitwardenStatus.Logout, null, "")]
-        [InlineData(BitwardenStatus.Locked, USERNAME, USERNAME)]
-        [InlineData(BitwardenStatus.Unlocked, USERNAME, USERNAME)]
+        [InlineData(BitwardenStatus.Locked, Email, Email)]
+        [InlineData(BitwardenStatus.Unlocked, Email, Email)]
         public void Test_Email(BitwardenStatus status, string email, string expected)
         {
             var mock = new Mock<IAuthService>();
@@ -40,9 +40,9 @@ namespace PassLock.Tests.GUI.ViewModels.Startup
         #region CanLogin
 
         [Theory]
-        [InlineData(USERNAME, PASSWORD, true)]
+        [InlineData(Email, PASSWORD, true)]
         [InlineData("", PASSWORD, false)]
-        [InlineData(USERNAME, "", false)]
+        [InlineData(Email, "", false)]
         [InlineData("", "", false)]
         public void CanLogin_Tests(string email, string password, bool expected)
         {
@@ -83,7 +83,7 @@ namespace PassLock.Tests.GUI.ViewModels.Startup
             var mock = new Mock<IAuthService>();
             var loginViewModel = new LoginViewModel(mock.Object, GetPasswordFunc)
             {
-                Email = USERNAME
+                Email = Email
             };
 
             loginViewModel.Reset();
