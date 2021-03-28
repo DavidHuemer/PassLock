@@ -1,10 +1,6 @@
-﻿using PassLock.Bitwarden.Data.Data.Items;
-using System;
+﻿using PassLock.Bitwarden.Data.Data.Objects.Items;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Items.ItemDetailViewModels
 {
@@ -22,15 +18,15 @@ namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Items.ItemDetailViewModel
             set
             {
                 item = value;
-                if(item != null)
-                {
-                    IconSource = item.IconSource;
-                    Name = item.Name;
-                    Username = item.Login.Username;
-                    Password = item.Login.Password;
-                    Notes = item.Notes;
-                    Websites = GetWebsites(item.Login.Uris);
-                }
+                //if(item != null)
+                //{
+                //    IconSource = item.IconSource;
+                //    Name = item.Name;
+                //    Username = item.Login.Username;
+                //    Password = item.Login.Password;
+                //    Notes = item.Notes;
+                //    Websites = GetWebsites(item.Login.Uris);
+                //}
             }
         }
 
