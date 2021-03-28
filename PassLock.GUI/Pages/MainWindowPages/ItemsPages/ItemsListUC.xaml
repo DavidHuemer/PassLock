@@ -7,7 +7,7 @@
              xmlns:default="clr-namespace:PassLock.GUI.Controls.Default"
              xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              xmlns:converter="clr-namespace:PassLock.GUI.Converter"
-             xmlns:items="clr-namespace:PassLock.Bitwarden.Data.Data.Items;assembly=PassLock.Bitwarden"
+             xmlns:items="clr-namespace:PassLock.Bitwarden.Data.Data.Objects.Items;assembly=PassLock.Bitwarden"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>

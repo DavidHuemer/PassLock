@@ -1,5 +1,5 @@
 ﻿using MVVM.Tools;
-using PassLock.Bitwarden.Data.Data.Items;
+using PassLock.Bitwarden.Data.Data.Objects.Items;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
