@@ -1,8 +1,7 @@
-﻿using PassLock.Bitwarden.Data.Data.Items;
-using PassLock.Bitwarden.Manager;
+﻿using PassLock.Bitwarden.Data.Data.Objects.Items;
+using PassLock.Bitwarden.Data.Data.Repositories;
 using PassLock.GUI.Manager.Items;
 using PassLock.GUI.ViewModels.Basics;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Items
@@ -11,7 +10,7 @@ namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Items
     {
         public ItemsListViewModel()
         {
-            Items = BitwardenItemsManager.GetStoredItems();
+            Items = BitwardenItemsRepository.Instance.Items;
         }
 
         private string search = "";

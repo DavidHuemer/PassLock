@@ -1,10 +1,6 @@
-﻿using PassLock.Bitwarden.Data.Data.Items;
-using PassLock.Bitwarden.Manager;
-using PassLock.GUI.ViewModels.Basics;
+﻿using PassLock.GUI.ViewModels.Basics;
 using PassLock.GUI.ViewModels.MainViewModels.Pages.Items.ItemDetailViewModels;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Items
