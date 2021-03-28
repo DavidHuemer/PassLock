@@ -134,6 +134,7 @@
     <Compile Include="ViewModels\MainViewModels\Pages\Items\ItemDetailViewModels\ItemViewerViewModel.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Items\ItemsListViewModel.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Items\ItemsPageViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\NavigationViewModel.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Settings\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\Startup\Installation\BitwardenInstallationViewModel.cs" />
     <Compile Include="ViewModels\Startup\Installation\BaseInstallationViewModel.cs" />
