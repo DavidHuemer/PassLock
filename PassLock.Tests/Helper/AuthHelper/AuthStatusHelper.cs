@@ -4,14 +4,17 @@ using System;
 
 namespace PassLock.Tests.Helper.AuthHelper
 {
+    /// <summary>
+    /// Helps creating an auth status for testing purpose
+    /// </summary>
     public class AuthStatusHelper
     {
         public const string LOGOUT_STATUS_OUTPUT = "{\"serverUrl\":\"https://bitwarden.com\",\"lastSync\":null,\"userEmail\":null,\"userId\":null,\"status\":\"unauthenticated\"}";
-        public const string LOCKET_STATUS_OUTPUT = "{\"serverUrl\":\"https://bitwarden.com\",\"lastSync\":\"2021-03-26T20:28:12.642Z\",\"userEmail\":\"" + BaseTest.USERNAME + "\",\"userId\":\"2cad48e5-a2h5-41a5-b00c-acbd01405774\",\"status\":\"locked\"}";
-        public const string UNLOCKED_STATUS_OUTPUT = "{\"serverUrl\":\"https://bitwarden.com\",\"lastSync\":\"2021-03-26T20:28:12.642Z\",\"userEmail\":\"" + BaseTest.USERNAME + "\",\"userId\":\"2cad48e5-a2h5-41a5-b00c-acbd01405774\",\"status\":\"unlocked\"}";
+        public const string LOCKET_STATUS_OUTPUT = "{\"serverUrl\":\"https://bitwarden.com\",\"lastSync\":\"2021-03-26T20:28:12.642Z\",\"userEmail\":\"" + BaseTest.Email + "\",\"userId\":\"2cad48e5-a2h5-41a5-b00c-acbd01405774\",\"status\":\"locked\"}";
+        public const string UNLOCKED_STATUS_OUTPUT = "{\"serverUrl\":\"https://bitwarden.com\",\"lastSync\":\"2021-03-26T20:28:12.642Z\",\"userEmail\":\"" + BaseTest.Email + "\",\"userId\":\"2cad48e5-a2h5-41a5-b00c-acbd01405774\",\"status\":\"unlocked\"}";
 
         private const string BITWARDEN_URL = "https://bitwarden.com";
-        private const string USERNAME = BaseTest.USERNAME;
+        private const string USERNAME = BaseTest.Email;
         private const string USER_ID = "2cad48e5-a2h5-41a5-b00c-acbd01405774";
 
         public static string GetAuthStatusOutputByBitwardenStatus(BitwardenStatus status)
