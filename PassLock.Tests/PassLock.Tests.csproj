@@ -73,7 +73,12 @@
   <ItemGroup>
     <Compile Include="Basics\BaseTest.cs" />
     <Compile Include="Basics\MoqTest.cs" />
+    <Compile Include="Bitwarden\Converter\ObjectConverters\BitwardenItemDtoToItemConverter_Tests.cs" />
+    <Compile Include="Bitwarden\Data\Repositories\BitwardenFoldersRepository_Tests.cs" />
+    <Compile Include="Bitwarden\Data\Repositories\BitwardenItemsRepository_Tests.cs" />
     <Compile Include="Bitwarden\DTOs\BitwardenAuthStatusDTO_Tests.cs" />
+    <Compile Include="Bitwarden\DTOs\Objects\Folders\BitwardenFolderDTO_Tests.cs" />
+    <Compile Include="Bitwarden\DTOs\Objects\Items\BitwardenItemDTO_Tests.cs" />
     <Compile Include="Bitwarden\Handler\Authentication\BitwardenAuthHandler_Tests.cs" />
     <Compile Include="Bitwarden\Handler\Authentication\BitwardenAuthStatus_Tests.cs" />
     <Compile Include="Bitwarden\Handler\Authentication\BitwardenLoginHandler_Tests.cs" />
@@ -85,6 +90,9 @@
     <Compile Include="Handler\IO\Web\Scrawler\FaviconScrawler_Tests.cs" />
     <Compile Include="Helper\AuthHelper\AuthStatusHelper.cs" />
     <Compile Include="Helper\AuthHelper\LoginHelper.cs" />
+    <Compile Include="Helper\ItemHelpers\ItemDTOsHelper.cs" />
+    <Compile Include="Helper\ItemHelpers\ItemsJsonDTOsHelper.cs" />
+    <Compile Include="Helper\Objects\Folders\FolderDTOsHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +118,9 @@
       <Project>{53b2a7aa-0e79-4f2c-aeba-9b133a204999}</Project>
       <Name>PassLock.Manager</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bitwarden\Data\Items\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
