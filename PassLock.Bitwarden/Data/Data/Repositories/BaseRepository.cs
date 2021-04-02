@@ -34,10 +34,13 @@ namespace PassLock.Bitwarden.Data.Data.Repositories
             Console.WriteLine($"BaseRepository update items");
             Items.Clear();
             var items = await LoadItems();
+            var obs = new ObservableCollection<T>();
             foreach (var item in items)
             {
-                Items.Add(item);
+                obs.Add(item);
             }
+
+            Items = obs;
             Console.WriteLine($"BaseRepository updated items");
         }
 
