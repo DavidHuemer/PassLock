@@ -23,9 +23,21 @@ namespace PassLock.Bitwarden.Manager.Objects
             BitwardenFoldersRepository.Instance.Init(foldersService);
         }
 
+        public static async Task SyncAndLoad()
+        {
+            await SyncAsync();
+            await Load();
+        }
+
         public static async Task<CommandResult> SyncAsync()
         {
             return await vault.Sync();
+        }
+
+        public static async Task Load()
+        {
+            await BitwardenFoldersRepository.Instance.UpdateItems();
+            await BitwardenItemsRepository.Instance.UpdateItems();
         }
     }
 }
