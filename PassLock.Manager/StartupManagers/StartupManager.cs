@@ -1,10 +1,6 @@
-﻿using PassLock.Bitwarden.Data.Data.Authentication;
-using PassLock.Bitwarden.Handler;
-using PassLock.Bitwarden.Manager;
-using PassLock.Bitwarden.Manager.Objects;
+﻿using PassLock.Bitwarden.Manager.Objects;
 using PassLock.Bitwarden.Services;
 using PassLock.Bitwarden.Services.ObjectServices;
-using PassLock.GUI.Manager;
 using PassLock.GUI.Windows;
 using PassLock.Handler.Data.Diagnostics;
 using PassLock.Handler.Data.Startup;
@@ -53,8 +49,11 @@ namespace PassLock.Manager.StartupManagers
                     new BitwardenItemsService(),
                     new BitwardenFoldersService()
                     );
+
+                BitwardenVaultManager.SyncAndLoad();
+
                 //await BitwardenItemsManager.SyncAndLoad();
-                //MainWindow.Instance.Show();
+                MainWindow.Instance.Show();
             }
         }
 
