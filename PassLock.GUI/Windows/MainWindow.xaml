@@ -12,7 +12,7 @@
         xmlns:settingsPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.SettingsPages"
         xmlns:accountPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.AccountPages"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="450" Width="800"
+        Title="{Binding Title}" Height="600" Width="1100"
         Style="{StaticResource BaseWindow}">
     <Window.Resources>
         <DataTemplate DataType="{x:Type itemsViewModels:ItemsPageViewModel}">
@@ -34,7 +34,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <navigationPages:NavigationPage/>
+        <navigationPages:NavigationPage DataContext="{Binding NavigationViewModel}"/>
 
         <ContentControl Content="{Binding CurrentPage}" Grid.Column="1"></ContentControl>
     </Grid>
