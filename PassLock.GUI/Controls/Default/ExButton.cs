@@ -6,6 +6,8 @@ namespace PassLock.GUI.Controls.Default
 {
     public class ExButton : Button
     {
+        #region Properties
+
         #region Default Values
         readonly static Brush DefaultHoverBackgroundValue = new BrushConverter().ConvertFromString("#FFBEE6FD") as Brush;
         readonly static Brush DefaultHoverBorderBrushValue = new BrushConverter().ConvertFromString("#b5b5b5") as Brush;
@@ -48,6 +50,8 @@ namespace PassLock.GUI.Controls.Default
 
         public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(
           nameof(CornerRadius), typeof(CornerRadius), typeof(ExButton), new PropertyMetadata(DefaultCornerRadiusValue));
+
+        #endregion
 
         #endregion
     }
