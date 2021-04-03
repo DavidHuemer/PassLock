@@ -103,7 +103,7 @@ namespace PassLock.Bitwarden.Converter.ObjectConverters
             item.Name = dto.Name;
             item.Notes = dto.Notes;
             item.Favorite = dto.Favorite;
-
+            item.FolderId = dto.FolderId;
             if(dto.Fields != null)
             {
                 item.Fields = dto.Fields

@@ -7,6 +7,7 @@ namespace PassLock.Bitwarden.Data.Data.Objects.Items
     {
         public bool Favorite { get; set; }
         public string Notes { get; set; }
+        public string FolderId { get; set; }
         public List<BitwardenItemField> Fields { get; set; }
     }
 }
