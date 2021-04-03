@@ -16,6 +16,8 @@
     <SolidColorBrush x:Key="Highlight_DarkBlue_1" Color="#3a4658"/>
     <SolidColorBrush x:Key="Highlight_DarkBlue_2" Color="#475464"/>
 
+    <SolidColorBrush x:Key="Highlight_DarkBlue_3" Color="#313b4b"/>
+
     <SolidColorBrush x:Key="Highlight_LightBlue_1" Color="#4c8dd3"/>
     
 </ResourceDictionary>
