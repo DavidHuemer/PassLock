@@ -39,5 +39,12 @@ namespace PassLock.GUI.Windows
             MainWindowViewModel = new MainWindowViewModel();
             DataContext = MainWindowViewModel;
         }
+
+        private void Mouse_Down(object sender, MouseButtonEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
+            focusedControl.ReleaseMouseCapture();
+            Keyboard.ClearFocus();
+        }
     }
 }

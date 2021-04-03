@@ -4,7 +4,7 @@ namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Settings
 {
     public class SettingsPageViewModel : PageViewModel
     {
-        public SettingsPageViewModel()
+        public SettingsPageViewModel() : base("Settings", "SettingsIcon")
         {
             DisplayName = "Settings";
         }

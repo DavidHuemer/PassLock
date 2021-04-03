@@ -4,19 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PassLock.GUI.Windows"
-        xmlns:itemsViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Items"
+        xmlns:vaultViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Vault"
         xmlns:settingsViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Settings"
         xmlns:accountViewModels="clr-namespace:PassLock.GUI.ViewModels.MainViewModels.Pages.Account"
         xmlns:navigationPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.NavigationPages"
-        xmlns:itemsPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.ItemsPages"
+        xmlns:vaultPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.VaultPages"
         xmlns:settingsPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.SettingsPages"
         xmlns:accountPages="clr-namespace:PassLock.GUI.Pages.MainWindowPages.AccountPages"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="600" Width="1100"
-        Style="{StaticResource BaseWindow}">
+        Style="{StaticResource BaseWindow}"
+        MouseDown="Mouse_Down">
     <Window.Resources>
-        <DataTemplate DataType="{x:Type itemsViewModels:ItemsPageViewModel}">
-            <itemsPages:ItemsPage/>
+        <DataTemplate DataType="{x:Type vaultViewModels:BaseVaultPage}">
+            <vaultPages:VaultPage/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type settingsViewModels:SettingsPageViewModel}">

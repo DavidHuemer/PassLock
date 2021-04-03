@@ -9,9 +9,9 @@ namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Account
 {
     public class AccountPageViewModel : PageViewModel
     {
-        public AccountPageViewModel()
+        public AccountPageViewModel() : base("Account", "AccountIcon")
         {
-            DisplayName = "Account";
+            
         }
     }
 }

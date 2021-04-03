@@ -2,17 +2,36 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:PassLock.GUI.Styles.Controls.Custom"
                     xmlns:buttons="clr-namespace:PassLock.GUI.Controls.Custom.Buttons"
+                    xmlns:converter="clr-namespace:PassLock.GUI.Converter"
                     xmlns:svgc="http://sharpvectors.codeplex.com/svgc/">
 
+    <converter:NavigationItemSelectedConverter x:Key="SelectionConverter"/>
+
     <Style TargetType="buttons:NavigationButton" BasedOn="{StaticResource BaseExButtonStyle}">
-        <Setter Property="HoverBackground" Value="#475464"/>
+        <Setter Property="HoverBackground" Value="{StaticResource Highlight_DarkBlue_2}"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderThickness" Value="1,1,0,1"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource Foreground_Light}"/>
         <Setter Property="Margin" Value="5,0,0,0"/>
         <Setter Property="Padding" Value="20,4,0,4"/>
         <Setter Property="CornerRadius" Value="4,0,0,4"/>
+        <Setter Property="Content" Value="{Binding DisplayName}"/>
+
+        <Setter Property="IsSelected">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource SelectionConverter}">
+                    <Binding Path="DataContext.CurrentPage" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                    <Binding Path="" RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
+        
+        <Setter Property="ItemsCount" Value="{Binding ItemsCount}"/>
+        <Setter Property="Command" Value="{Binding DataContext.ChangePage, 
+            RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"/>
+        <Setter Property="CommandParameter" Value="{Binding }"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -33,7 +52,7 @@
                                     <ColumnDefinition Width="32"/>
                                 </Grid.ColumnDefinitions>
 
-                                <svgc:SvgViewbox Source="{TemplateBinding IconSource}"/>
+                                <ContentControl ContentTemplate="{Binding IconsResource}"/>
 
                                 <ContentPresenter Grid.Column="1"
                                                   Margin="8,0,0,0"
@@ -42,7 +61,7 @@
                                                   TextElement.FontWeight="{TemplateBinding FontWeight}"
                                                   TextElement.Foreground="{TemplateBinding Foreground}"/>
 
-                                <Border x:Name="ItemsCountBorder" Grid.Column="2" Background="#313b4b" CornerRadius="8" Width="32">
+                                <Border x:Name="ItemsCountBorder" Grid.Column="2" Background="{StaticResource Highlight_DarkBlue_3}" CornerRadius="8" Width="32">
                                     <Label Content="{TemplateBinding ItemsCount}" 
                                            HorizontalAlignment="Center"
                                            Foreground="{TemplateBinding Foreground}"/>
@@ -57,14 +76,13 @@
                         </Trigger>
 
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="Border" Property="Background" Value="#cccccc"/>
-                            <Setter Property="Foreground" Value="#949494"/>
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource DisabledBackground}"/>
+                            <Setter Property="Foreground" Value="{StaticResource DisabledForeground}"/>
                         </Trigger>
 
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="Border" Property="Background" Value="{Binding Path=HoverBackground, RelativeSource={RelativeSource AncestorType={x:Type buttons:NavigationButton}}}"/>
-                            <Setter TargetName="Border" Property="BorderBrush" Value="#525b66"/>
-                            <Setter TargetName="Border" Property="BorderThickness" Value="1,1,0,1"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#455161"/>
                         </Trigger>
 
                         <Trigger Property="ItemsCount" Value="{x:Null}">

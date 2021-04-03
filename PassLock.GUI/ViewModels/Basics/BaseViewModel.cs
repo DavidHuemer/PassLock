@@ -1,11 +1,15 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace PassLock.GUI.ViewModels.Basics
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        #pragma warning disable CS0067
         public event PropertyChangedEventHandler PropertyChanged;
-        #pragma warning restore CS0067
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
     }
 }

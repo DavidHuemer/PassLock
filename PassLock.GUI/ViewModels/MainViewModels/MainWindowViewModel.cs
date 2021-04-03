@@ -1,36 +1,28 @@
-﻿using MVVM.Tools;
-using PassLock.GUI.ViewModels.Basics;
-using PassLock.GUI.ViewModels.MainViewModels.Pages.Account;
-using PassLock.GUI.ViewModels.MainViewModels.Pages.Items;
-using PassLock.GUI.ViewModels.MainViewModels.Pages.Settings;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Input;
+﻿using PassLock.GUI.ViewModels.Basics;
+using PassLock.GUI.ViewModels.MainViewModels.Pages;
+using System.ComponentModel;
 
 namespace PassLock.GUI.ViewModels.MainViewModels
 {
     public class MainWindowViewModel : WindowViewModel
     {
+        public NavigationViewModel NavigationViewModel { get; set; }
+        public PageViewModel CurrentPage { get; set; }
+
         public MainWindowViewModel()
         {
             Title = "PassLock";
 
-            Pages.Add(new ItemsPageViewModel());
-            Pages.Add(new SettingsPageViewModel());
-            Pages.Add(new AccountPageViewModel());
-            CurrentPage = Pages[0];
+            NavigationViewModel = new NavigationViewModel();
+            NavigationViewModel.PropertyChanged += Navigation_PropChanged;
         }
 
-        public List<PageViewModel> Pages { get; set; } = new List<PageViewModel>();
-        public PageViewModel CurrentPage { get; set; }
-
-        public RelayCommand<PageViewModel> ChangePage => new RelayCommand<PageViewModel>(o => { DoChangePage(o); }, o => true);
-        
-        private void DoChangePage(PageViewModel o)
+        private void Navigation_PropChanged(object sender, PropertyChangedEventArgs e)
         {
-            Console.WriteLine($"Change current page to {o.DisplayName}");
-            CurrentPage = Pages.FirstOrDefault(x => x == o);
+            if(e.PropertyName == nameof(NavigationViewModel.CurrentPage))
+            {
+                CurrentPage = NavigationViewModel.CurrentPage;
+            }
         }
     }
 }
