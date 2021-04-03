@@ -6,16 +6,16 @@ namespace PassLock.GUI.Controls.Custom.Buttons
 {
     public class NavigationButton : ExButton
     {
-        #region Icon Source
+        #region Icon Template
 
-        public Uri IconSource
+        public DataTemplate IconTemplate
         {
-            get { return (Uri)GetValue(IconSourceProperty); }
-            set { SetValue(IconSourceProperty, value); }
+            get { return (DataTemplate)GetValue(IconTemplateProperty); }
+            set { SetValue(IconTemplateProperty, value); }
         }
 
-        public static readonly DependencyProperty IconSourceProperty = DependencyProperty.Register(
-          nameof(IconSource), typeof(Uri), typeof(NavigationButton), new PropertyMetadata(null));
+        public static readonly DependencyProperty IconTemplateProperty = DependencyProperty.Register(
+            nameof(IconTemplate), typeof(Uri), typeof(NavigationButton), new PropertyMetadata(null));
 
         #endregion
 
