@@ -12,7 +12,7 @@ namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Items
         public List<BaseItemDetailViewModel> DetailPages { get; set; }
         public BaseItemDetailViewModel OpenedPage { get; set; }
 
-        public ItemsPageViewModel()
+        public ItemsPageViewModel() : base("", "")
         {
             DisplayName = "Items";
             ItemsListViewModel = new ItemsListViewModel();

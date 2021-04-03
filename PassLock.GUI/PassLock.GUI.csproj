@@ -87,7 +87,11 @@
     <Compile Include="Controls\Default\ExTextBox.cs" />
     <Compile Include="Converter\BooleanToCollapsedConverter.cs" />
     <Compile Include="Converter\FirstLetterConverter.cs" />
+    <Compile Include="Converter\NavigationItemSelectedConverter.cs" />
     <Compile Include="Converter\UriImageSourceConverter.cs" />
+    <Compile Include="Converter\VaultConverters\FirstLetterConverter.cs" />
+    <Compile Include="Converter\VaultConverters\SearchTextConverter.cs" />
+    <Compile Include="Converter\VaultConverters\UriImageSourceConverter.cs" />
     <Compile Include="Manager\BitwardenUIAuthManager.cs" />
     <Compile Include="Manager\Items\ItemsSearchManager.cs" />
     <Compile Include="Pages\MainWindowPages\AccountPages\AccountPage.xaml.cs">
@@ -108,6 +112,12 @@
     <Compile Include="Pages\MainWindowPages\SettingsPages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MainWindowPages\VaultPages\VaultList.xaml.cs">
+      <DependentUpon>VaultList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindowPages\VaultPages\VaultPage.xaml.cs">
+      <DependentUpon>VaultPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -121,6 +131,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Resources\ResourceHandler.cs" />
     <Compile Include="Styles\Basics\WindowStyles.xaml.cs">
       <DependentUpon>WindowStyles.xaml</DependentUpon>
     </Compile>
@@ -136,6 +147,11 @@
     <Compile Include="ViewModels\MainViewModels\Pages\Items\ItemsPageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\NavigationViewModel.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Settings\SettingsPageViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\Vault\BaseVaultPage.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\Vault\CategoryVaultPage.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\Vault\FavoritesVaultPage.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\Vault\FolderVaultPage.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\Vault\VaultPage.cs" />
     <Compile Include="ViewModels\Startup\Installation\BitwardenInstallationViewModel.cs" />
     <Compile Include="ViewModels\Startup\Installation\BaseInstallationViewModel.cs" />
     <Compile Include="ViewModels\Startup\Installation\NpmInstallationViewModel.cs" />
@@ -186,6 +202,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MainWindowPages\VaultPages\VaultList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MainWindowPages\VaultPages\VaultPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Icons\NavigationIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Basics\BaseStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -203,6 +231,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Controls\Custom\NavigationStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Controls\Custom\VaultStyles\VaultListStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

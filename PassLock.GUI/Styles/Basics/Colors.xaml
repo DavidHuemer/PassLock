@@ -6,6 +6,7 @@
 
     <SolidColorBrush x:Key="MainForeground" Color="#212121"/>
     <SolidColorBrush x:Key="Foreground_Light" Color="#b8bec5"/>
+    <SolidColorBrush x:Key="Foreground_Light_1" Color="#f6f6f6"/>
     <SolidColorBrush x:Key="DisabledForeground" Color="#949494"/>
 
     <SolidColorBrush x:Key="ControlBackground" Color="#fafafa"/>

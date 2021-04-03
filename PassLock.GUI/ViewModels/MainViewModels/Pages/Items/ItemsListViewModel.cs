@@ -39,7 +39,7 @@ namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Items
 
         public void SearchItems(string search)
         {
-            DisplayedItems = ItemsSearchManager.FilterItems(Items, search);
+            //DisplayedItems = ItemsSearchManager.FilterItems(Items, search);
         }
     }
 }

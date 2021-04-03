@@ -42,8 +42,9 @@ namespace PassLock.GUI.Windows
 
         private void Mouse_Down(object sender, MouseButtonEventArgs e)
         {
-            IInputElement focusedControl = FocusManager.GetFocusedElement(this);
-            focusedControl.ReleaseMouseCapture();
+            // Kill logical focus
+            FocusManager.SetFocusedElement(FocusManager.GetFocusScope(this), null);
+            // Kill keyboard focus
             Keyboard.ClearFocus();
         }
     }

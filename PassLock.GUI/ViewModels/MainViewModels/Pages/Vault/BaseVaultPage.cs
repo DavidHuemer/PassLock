@@ -1,6 +1,7 @@
 ﻿using MVVM.Tools;
 using PassLock.Bitwarden.Data.Data.Objects.Items;
 using PassLock.Bitwarden.Data.Data.Repositories;
+using PassLock.GUI.Manager.Items;
 using PassLock.GUI.ViewModels.Basics;
 using System;
 using System.Collections.Generic;
@@ -56,9 +57,7 @@ namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Vault
 
         private void UpdateItems()
         {
-            DisplayItems = VaultItems
-                .Where(x => x.Name.Contains(SearchText))
-                .ToList();
+            DisplayItems = ItemsSearchManager.FilterItems(VaultItems, searchText);
         }
 
         protected abstract List<BitwardenItem> GetItemsForPage(ObservableCollection<BitwardenItem> allItems);
