@@ -1,0 +1,177 @@
+﻿<UserControl x:Class="PassLock.GUI.Pages.MainWindowPages.VaultPages.VaultList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PassLock.GUI.Pages.MainWindowPages.VaultPages"
+             xmlns:vaultConverter="clr-namespace:PassLock.GUI.Converter.VaultConverters"
+             xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             xmlns:items="clr-namespace:PassLock.Bitwarden.Data.Data.Objects.Items;assembly=PassLock.Bitwarden"
+             xmlns:default="clr-namespace:PassLock.GUI.Controls.Default"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <vaultConverter:UriImageSourceConverter x:Key="UriImageSourceConverter"/>
+        <vaultConverter:FirstLetterConverter x:Key="FirstLetterConverter"/>
+        <vaultConverter:SearchTextConverter x:Key="SearchTextConverter"/>
+
+        <CollectionViewSource x:Key="ItemsView" Source="{Binding DisplayItems}">
+            <CollectionViewSource.SortDescriptions>
+                <componentModel:SortDescription PropertyName="Name"/>
+            </CollectionViewSource.SortDescriptions>
+
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="Name" Converter="{StaticResource FirstLetterConverter}"/>
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+
+        <DataTemplate DataType="{x:Type items:BitwardenItem}">
+            <Grid Height="44">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="22"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image Source="{Binding IconSource, Converter={StaticResource UriImageSourceConverter}}"
+                       Grid.RowSpan="2"
+                       Margin="2"/>
+
+                <TextBlock Name="ItemNameTxtBlock" 
+                           Text="{Binding Name}"
+                           FontWeight="Bold"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"/>
+
+                <TextBlock Name="ItemNoteTxtBlock" 
+                           Grid.Row="1" Grid.Column="1" 
+                           Text="{Binding Notes}"/>
+            </Grid>
+
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, 
+                    AncestorType={x:Type ListBoxItem}}, 
+                    Path=IsSelected}" Value="True">
+                    <Setter TargetName="ItemNameTxtBlock" Property="Foreground" Value="{DynamicResource Foreground_Light_1}"/>
+                    <Setter TargetName="ItemNoteTxtBlock" Property="Foreground" Value="{DynamicResource Foreground_Light_1}"/>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <DataTemplate x:Key="GroupingHeader">
+            <TextBlock Text="{Binding Name}" Background="Black" Foreground="White"/>
+        </DataTemplate>
+
+        <Style x:Key="VaultItemStyle" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="Border" Background="{TemplateBinding Background}">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource Highlight_LightBlue_1}"/>
+                                <Setter TargetName="Border" Property="CornerRadius" Value="6"/>
+                                <Setter TargetName="Border" Property="BorderThickness" Value="0"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="Green"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+
+            <default:ExTextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                               Hint="{Binding DisplayName, Converter={StaticResource SearchTextConverter}}"/>
+
+            <default:ExButton Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="1">
+                <default:ExButton.Content>
+                    <ContentControl>
+                        <ContentControl.ContentTemplate>
+                            <DataTemplate>
+                                <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+                                    <Canvas Name="svg80" Width="24" Height="24">
+                                        <Canvas.RenderTransform>
+                                            <TranslateTransform X="0" Y="0"/>
+                                        </Canvas.RenderTransform>
+                                        <Canvas.Resources/>
+                                        <!--Unknown tag: metadata-->
+                                        <!--Unknown tag: sodipodi:namedview-->
+                                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path76">
+                                            <Path.Data>
+                                                <PathGeometry Figures="M0 0h24v24H0z" FillRule="NonZero"/>
+                                            </Path.Data>
+                                        </Path>
+                                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path78" Fill="{StaticResource MainForeground}">
+                                            <Path.Data>
+                                                <PathGeometry Figures="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" FillRule="NonZero"/>
+                                            </Path.Data>
+                                        </Path>
+                                    </Canvas>
+                                </Viewbox>
+                            </DataTemplate>
+                        </ContentControl.ContentTemplate>
+                    </ContentControl>
+                </default:ExButton.Content>
+            </default:ExButton>
+        </Grid>
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding Source={StaticResource ItemsView}}"
+                 ItemContainerStyle="{StaticResource VaultItemStyle}">
+            <ListBox.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="GroupItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="GroupItem">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+
+                                            <Border Background="#f7f7f8" 
+                                                    BorderThickness="0,1" BorderBrush="LightGray">
+                                                <Label Grid.Row="0" 
+                                                       Content="{Binding Name}"
+                                                       Height="24" 
+                                                       Margin="16,0,0,0"
+                                                       VerticalAlignment="Center"
+                                                       VerticalContentAlignment="Center"/>
+                                            </Border>
+                                            <ItemsPresenter Grid.Row="1"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </ListBox.GroupStyle>
+        </ListBox>
+    </Grid>
+</UserControl>
