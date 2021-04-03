@@ -4,6 +4,7 @@
 
     <Style x:Key="BaseStyle" TargetType="{x:Type Control}">
         <Setter Property="Foreground" Value="{StaticResource MainForeground}"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     </Style>
     
 </ResourceDictionary>
