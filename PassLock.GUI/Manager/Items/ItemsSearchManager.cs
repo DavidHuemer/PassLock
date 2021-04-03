@@ -1,17 +1,12 @@
-﻿using MVVM.Tools;
-using PassLock.Bitwarden.Data.Data.Objects.Items;
-using System;
+﻿using PassLock.Bitwarden.Data.Data.Objects.Items;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PassLock.GUI.Manager.Items
 {
     public static class ItemsSearchManager
     {
-        public static ObservableCollection<BitwardenItem> FilterItems(ObservableCollection<BitwardenItem> allItems, string searchText)
+        public static List<BitwardenItem> FilterItems(List<BitwardenItem> allItems, string searchText)
         {
             string realSearchText = searchText
                 .Trim()
@@ -20,8 +15,7 @@ namespace PassLock.GUI.Manager.Items
             return allItems
                 .ToList()
                 .Where(x => ShoulbItemBeAdded(x, realSearchText))
-                .ToList()
-                .AsObservableCollection();
+                .ToList();
         }
 
 
