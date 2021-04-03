@@ -22,6 +22,9 @@
                 <!--Custom Controls-->
                 <ResourceDictionary Source="pack://application:,,,/PassLock.GUI;component/Styles/Controls/Custom/NavigationStyles.xaml"/>
 
+                <!--Icons-->
+                <ResourceDictionary Source="pack://application:,,,/PassLock.GUI;component/Resources/Icons/NavigationIcons.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
