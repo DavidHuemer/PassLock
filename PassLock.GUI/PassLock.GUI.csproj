@@ -112,6 +112,15 @@
     <Compile Include="Pages\MainWindowPages\SettingsPages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MainWindowPages\VaultPages\ContentPages\CreationPages\CreateBitwardenItemPage.xaml.cs">
+      <DependentUpon>CreateBitwardenItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindowPages\VaultPages\ContentPages\ItemViewers\LoginItemViewer.xaml.cs">
+      <DependentUpon>LoginItemViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindowPages\VaultPages\ContentPages\VaultContentPage.xaml.cs">
+      <DependentUpon>VaultContentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainWindowPages\VaultPages\VaultList.xaml.cs">
       <DependentUpon>VaultList.xaml</DependentUpon>
     </Compile>
@@ -149,6 +158,11 @@
     <Compile Include="ViewModels\MainViewModels\Pages\Settings\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Vault\BaseVaultPage.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Vault\CategoryVaultPage.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\Vault\ContentViewModels\Basics\BaseItemViewerViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\Vault\ContentViewModels\Basics\BaseVaultContentViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\Vault\ContentViewModels\CreationViewModels\BitwardenItemCreationViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\Vault\ContentViewModels\ItemViewers\LoginItemViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModels\Pages\Vault\ContentViewModels\VaultContentViewModel.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Vault\FavoritesVaultPage.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Vault\FolderVaultPage.cs" />
     <Compile Include="ViewModels\MainViewModels\Pages\Vault\VaultPage.cs" />
@@ -199,6 +213,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MainWindowPages\SettingsPages\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindowPages\VaultPages\ContentPages\CreationPages\CreateBitwardenItemPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindowPages\VaultPages\ContentPages\ItemViewers\LoginItemViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindowPages\VaultPages\ContentPages\VaultContentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -3,11 +3,10 @@ using PassLock.Bitwarden.Data.Data.Objects.Items;
 using PassLock.Bitwarden.Data.Data.Repositories;
 using PassLock.GUI.Manager.Items;
 using PassLock.GUI.ViewModels.Basics;
-using System;
+using PassLock.GUI.ViewModels.MainViewModels.Pages.Vault.ContentViewModels;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 
 namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Vault
 {
@@ -15,12 +14,16 @@ namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Vault
     {
         public BaseVaultPage(string name, string iconsResource) : base(name, iconsResource)
         {
-            DisplayName = name;
+            VaultContent = new VaultContentViewModel();
             BitwardenItemsRepository.Instance.PropertyChanged += Rep_PropChanged;
             ItemsCount = 0;
 
             UpdateItemsFull();
         }
+
+        #region Properties
+
+        public VaultContentViewModel VaultContent { get; set; }
 
         public List<BitwardenItem> VaultItems { get; set; }
 
@@ -38,7 +41,30 @@ namespace PassLock.GUI.ViewModels.MainViewModels.Pages.Vault
             }
         }
 
+        private BitwardenItem selectedItem;
 
+        public BitwardenItem SelectedItem
+        {
+            get { return selectedItem; }
+            set
+            {
+                selectedItem = value;
+                VaultContent.Show(selectedItem);
+            }
+        }
+
+        #endregion
+
+        #region Commands
+
+        public RelayCommand AddItem => new RelayCommand(o => { DoAddItem(); }, o => true);
+
+        private void DoAddItem()
+        {
+            VaultContent.Add();
+        }
+
+        #endregion
 
         private void Rep_PropChanged(object sender, PropertyChangedEventArgs e)
         {
