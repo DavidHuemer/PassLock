@@ -107,7 +107,9 @@
             <default:ExTextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                                Hint="{Binding DisplayName, Converter={StaticResource SearchTextConverter}}"/>
 
-            <default:ExButton Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="1">
+            <default:ExButton Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                              Padding="1"
+                              Command="{Binding AddItem}">
                 <default:ExButton.Content>
                     <ContentControl>
                         <ContentControl.ContentTemplate>
@@ -140,7 +142,8 @@
         </Grid>
 
         <ListBox Grid.Row="1" ItemsSource="{Binding Source={StaticResource ItemsView}}"
-                 ItemContainerStyle="{StaticResource VaultItemStyle}">
+                 ItemContainerStyle="{StaticResource VaultItemStyle}"
+                 SelectedItem="{Binding SelectedItem}">
             <ListBox.GroupStyle>
                 <GroupStyle>
                     <GroupStyle.ContainerStyle>
